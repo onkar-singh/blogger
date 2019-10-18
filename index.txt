@@ -1,10 +1,13 @@
 The Conditional Attribute Implementation
 REMOVE SIDEBAR FROM HOMEPAGE
 <b:section cond='!data:view.isHomepage' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR FROM STATIC PAGE
 <b:section cond='!data:view.isPage' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR FROM URL CONTAIN WORD 'SEARCH'
 <b:section cond='!data:view.isSearch' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR FROM HOMEPAGE AND STATIC PAGE
 <b:section cond='!data:view.isHomepage or !data:view.isPage' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
 With Logical Operator 'or' we can give two or more condition .
@@ -12,10 +15,13 @@ Examples - Remove Sidebar from specific blog Page / Post
 Note: When you create post or page, look at your Browser address bar to get postID or pageID of the page or post and replace with the number in the example below.
 REMOVE SIDEBAR FROM ARTICLE OR POST
 <b:section cond='data:view.postId != 123456' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR FROM A STATIC PAGE
 <b:section cond='data:view.pageId != 123456' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR IN MULTIPLE SELECTED ARTICLES
 <b:section cond='data:view.postId not in [123456,234567,345678]' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 REMOVE SIDEBAR IN SEVERAL STATIC PAGES
 <b:section cond='data:view.pageId not in [123456,234567,345678]' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
 
@@ -24,60 +30,71 @@ REMOVE SIDEBAR IN SEVERAL STATIC PAGES
 <b:if cond='data:blog.pageType == "archive"'>
 <!--archive_Page-->
 </b:if>
+
 Error Page (404)
 <b:if cond='data:blog.pageType == "error_page"'>
 <!-- all error pages-->
 </b:if>
+
 Index Page
 <b:if cond='data:blog.pageType == "index"'>
 <!-- all index pages -->
 </b:if>
+
 Homepage
 <b:if cond='data:blog.url == data:blog.homepageUrl'> 
 <!-- only homepage -->
 </b:if>
+
 Item (post) pages
 <b:if cond='data:blog.pageType == "item"'>
 <!-- all item pages -->
 </b:if>
+
 Specific Post by URL
 <b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + "2014/08/foo.html"'> 
 <!-- a item page from august 2014 with post-title 'foo'-->
 </b:if>
+
 Label page
 <b:if cond='data:blog.searchLabel'>
 <!-- all label pages -->
 </b:if>
+
 Specific Label Page
 <b:if cond='data:blog.searchLabel == "foo"'>
 <!-- for label 'foo' -->
 </b:if>
+
 Search page
 <b:if cond='data:blog.searchQuery'>
 <!-- all search pages -->
 </b:if>
+
 Specific Search Query page
 <b:if cond='data:blog.searchQuery == "foo"'>
 <!-- for query 'foo' -->
 </b:if>
+
 Static page
 <b:if cond='data:blog.pageType == "static_page"'>
 <!-- all static pages -->
 </b:if>
+
 Specific Static page by URL
 <b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + "p/foo.html"'> 
 <!-- a specific static page with name 'foo' -->
 </b:if>
+
 AND/OR/NOT
 AND
-
 <b:if cond='data:blog.pageType == "index"'>
   <b:if cond='data:blog.searchQuery'>
     <!--search_page AND index_page-->
   </b:if>
 </b:if>
-OR
 
+OR
 <b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + "p/foo.html"'> 
   <!-- static_site foo OR static_site bar -->
       <b:else/>
@@ -85,8 +102,8 @@ OR
   <!-- static_site foo OR static_site bar -->
    </b:if>
 </b:if>
-NOT
 
+NOT
 <b:if cond='data:blog.pageType != "item"'>
   <!-- all pages except item pages -->
 </b:if>
