@@ -10,9 +10,11 @@ REMOVE SIDEBAR FROM URL CONTAIN WORD 'SEARCH'
 
 REMOVE SIDEBAR FROM HOMEPAGE AND STATIC PAGE
 <b:section cond='!data:view.isHomepage or !data:view.isPage' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
+
 With Logical Operator 'or' we can give two or more condition .
 Examples - Remove Sidebar from specific blog Page / Post
 Note: When you create post or page, look at your Browser address bar to get postID or pageID of the page or post and replace with the number in the example below.
+
 REMOVE SIDEBAR FROM ARTICLE OR POST
 <b:section cond='data:view.postId != 123456' class='sidebar' id='sidebar_feed' name='Sidebar' showaddelement='yes'>
 
